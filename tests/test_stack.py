@@ -3,7 +3,7 @@ import pytest
 from hexlet_pytest.stack import stack
 
 
-def test_stack():
+def test_stack(stack):
     stack.append('one')
     stack.append('two')
 
@@ -11,7 +11,7 @@ def test_stack():
     assert stack.pop() == 'one'
 
 
-def test_empties():
+def test_empties(stack):
     assert not stack
     stack.append('one')
     assert bool(stack)
@@ -20,6 +20,6 @@ def test_empties():
     assert not stack
 
 
-def test_pop_with_empty_stack():
+def test_pop_with_empty_stack(stack):
     with pytest.raises(IndexError):
         stack.pop()
